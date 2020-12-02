@@ -12,4 +12,9 @@ workflows:
     jobs:
       - build:
           post-steps:
-            - jira/notify
+            - jira/notify:
+              job_type: deployment
+              token_name:
+                default: circleci
+                description: The name of environment variable containing CircleCI API Token. Required for all projects.
+                type: string
